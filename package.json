@@ -1,0 +1,21 @@
+{
+    "name": "vefa-locals",
+    "version": "1.0",
+    "description": "load various data files and insert into a locals variable for use in Webpack",
+    "author": "Cobey Potter <cobey@wellfire.co> (http://wellfire.co)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vefari/vefa-locals.git"
+    },
+    "main": "index.js",
+    "bugs": {
+        "url": "https://github.com/vefari/vefa-locals/issues"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "glob": "^7.1.2",
+        "js-yaml": "^3.10.0",
+        "object-merge": "^2.5.1",
+        "yamlify": "^0.2.0"
+    }
+}
