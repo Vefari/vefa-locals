@@ -31,7 +31,9 @@ class LocalsLoader {
 
                 refPath.shift()
                 refPath = refPath.reverse()
-                refs = { [refPath[0]]: content }
+
+                let fileref = (refPath[0] === undefined) ? load_obj.name : refPath[0]
+                refs = { [fileref]: content }
 
                 refPath.forEach(
                     (key, index) => {
