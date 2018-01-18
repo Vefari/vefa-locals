@@ -10,7 +10,6 @@ class LocalsLoader {
     constructor (options, locals) {
         this.opts = options
         this.locals = locals
-        this.locals.load = false
         this.loadedLocals = {}
     }
 
@@ -81,6 +80,12 @@ class LocalsLoader {
         compiler.plugin(
             'compilation',
             (compilation) => {
+                Object.keys(this.loadedLocals).forEach(
+                    (key) => {
+                        delete this.loadedLocals[key]
+                    }
+                )
+
                 if (this.opts) {
                     this.opts.forEach(
                         (local) => {
@@ -89,9 +94,24 @@ class LocalsLoader {
                         }
                     )
                 }
-                this.locals = Object.assign(
-                    this.locals,
-                    this.loadedLocals
+                // Object.keys(this.loadedlocals).forEach(
+                //     (key) => delete this.locals[key]
+                // )
+                // Object.keys(this.loadedLocals).forEach(
+                //     (key) => {
+                //         if (this.locals[key]) delete this.locals[key]
+                //     }
+                // )
+
+                // this.locals = Object.assign(
+                //     this.locals,
+                //     this.loadedLocals
+                // )
+
+                Object.entries(this.loadedLocals).forEach(
+                    ([key, value]) => {
+                        this.locals[key] = value
+                    }
                 )
             }
         )
@@ -102,6 +122,12 @@ class LocalsLoader {
                 watching.compiler.plugin(
                     'compilation',
                     (compilation) => {
+                        Object.keys(this.loadedLocals).forEach(
+                            (key) => {
+                                delete this.loadedLocals[key]
+                            }
+                        )
+
                         if (this.opts) {
                             this.opts.forEach(
                                 (local) => {
@@ -110,6 +136,12 @@ class LocalsLoader {
                                 }
                             )
                         }
+
+                        Object.entries(this.loadedLocals).forEach(
+                            ([key, value]) => {
+                                this.locals[key] = value
+                            }
+                        )
                     }
                 )
 
