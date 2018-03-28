@@ -1,6 +1,6 @@
 {
     "name": "vefa-locals",
-    "version": "1.1",
+    "version": "1.2",
     "description": "load various data files and insert into a locals variable for use in Webpack",
     "author": "Cobey Potter <cobey@wellfire.co> (http://wellfire.co)",
     "repository": {
