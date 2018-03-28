@@ -36,8 +36,11 @@ class LocalsLoader {
 
                 refPath.forEach(
                     (key, index) => {
+                        let localKey = (key == 'components')
+                            ? load_obj.name
+                            : key
                         !(refs[key])
-                            ? ( refs = { [key]: refs } )
+                            ? ( refs = { [localKey]: refs } )
                             : refs
                     }
                 )
